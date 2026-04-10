@@ -1,12 +1,9 @@
 #grid {
     display: flex;
-    
-
-
 }
 
 #grid div {
     width: 8px;
     height: 8px;
-    background-color: bisque;
+    background-color: black;
 }

@@ -1,9 +1,15 @@
 #grid {
     display: flex;
+    flex-direction: row;
 }
 
 #grid div {
     width: 8px;
     height: 8px;
     background-color: black;
+}
+
+.row {
+    
+
 }

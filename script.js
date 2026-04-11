@@ -7,14 +7,14 @@ let gridSize = 16*16
 // Setup number of rows in the grid
 for (let i = 0; i < n; i++) {
     let row = document.createElement("div");
-    row.classList.add("row");
-    row.classList.add("row" + i);
+    row.classList.add("col");
+    row.classList.add("col" + i);
     grid.appendChild(row);
 }
 
 // For each row, append n cells
 for (let i = 0; i < n; i++) {
-    let row = document.querySelector(".row.row" + i);
+    let row = document.querySelector(".col.col" + i);
     for (let j = 0; j < n; j++) {
         let cell = document.createElement("div");
         row.appendChild(cell);

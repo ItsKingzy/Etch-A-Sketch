@@ -1,15 +1,19 @@
 #grid {
     display: flex;
     flex-direction: row;
+    
 }
 
-#grid div {
+#grid .col div {
     width: 8px;
     height: 8px;
     background-color: black;
+    /* DELETE LATER: ONLY FOR VISUAL GRID */
+    margin: 1px;
+    /* DELETE LATER: ONLY FOR VISUAL GRID */
 }
 
 .col {
-    
-
+    display: flex;
+    flex-direction: column;
 }

@@ -20,3 +20,14 @@ for (let i = 0; i < n; i++) {
         row.appendChild(cell);
     }
 }
+
+
+
+/* Hover effect on hover of 1 cell */
+let cell = document.querySelectorAll(".col div");
+// Hover effect
+cell.forEach(div => {
+   div.addEventListener("mouseover", (event) => {
+        event.target.style.backgroundColor = "white";
+    }); 
+});

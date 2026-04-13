@@ -30,19 +30,23 @@ function updateGridSize(size) {
             row.appendChild(cell);
         }
     }
+
+    // Re-query all cells
+    let cell = document.querySelectorAll(".col div");
+    addHoverEffect(cell)
+}
+
+function addHoverEffect(cell) {
+    // Hover effect
+    cell.forEach(div => {
+        div.addEventListener("mouseover", (event) => {
+            event.target.style.backgroundColor = "white";
+        }); 
+    });
 }
 
 updateGridSize(16); // Set default grid size to 16
 
-
-/* Hover effect on hover of 1 cell */
-let cell = document.querySelectorAll(".col div");
-// Hover effect
-cell.forEach(div => {
-    div.addEventListener("mouseover", (event) => {
-        event.target.style.backgroundColor = "white";
-    }); 
-});
 
 // Dynamic grid size adjuster
 let slider = document.querySelector("#slider");

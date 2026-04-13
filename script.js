@@ -39,3 +39,11 @@ cell.forEach(div => {
         event.target.style.backgroundColor = "white";
     }); 
 });
+
+// Dynamic grid size adjuster
+let slider = document.querySelector("#slider");
+let gridSize = document.querySelector("#grid-size");
+slider.addEventListener("change", (event) => {
+    let n = event.currentTarget.value % 100;
+    gridSize.textContent = `${n} x ${n}`;
+});

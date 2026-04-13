@@ -2,6 +2,10 @@
 const grid = document.querySelector("#grid");
 
 function updateGridSize(size) {
+    // Pre condition to delete all divs
+    const allCols = document.querySelectorAll(".col");
+    allCols.forEach(val => {grid.removeChild(val);});
+
     // Setup number of rows in the grid
     for (let i = 0; i < size; i++) {
         let row = document.createElement("div");
@@ -46,4 +50,5 @@ let gridSize = document.querySelector("#grid-size");
 slider.addEventListener("change", (event) => {
     let n = event.currentTarget.value % 100;
     gridSize.textContent = `${n} x ${n}`;
+    updateGridSize(n);
 });

@@ -1,3 +1,11 @@
+let holdingClick = false;  // Tell program if user is holding the click
+document.querySelector("body").addEventListener("mousedown", () => {
+    holdingClick = true;
+});
+document.querySelector("body").addEventListener("mouseup", () => {
+    holdingClick = false;
+});
+
 // Create a 16 x 16 grid of square divs
 const grid = document.querySelector("#grid");
 
@@ -5,14 +13,6 @@ function updateGridSize(size) {
     // Pre condition to delete all divs
     const allCols = document.querySelectorAll(".col");
     allCols.forEach(val => {grid.removeChild(val);});
-
-    // Setup number of rows in the grid
-    for (let i = 0; i < size; i++) {
-        let row = document.createElement("div");
-        row.classList.add("col");
-        row.classList.add("col" + i);
-        grid.appendChild(row);
-    }
 
     // Setup number of rows in the grid
     for (let i = 0; i < size; i++) {
@@ -33,15 +33,21 @@ function updateGridSize(size) {
 
     // Re-query all cells
     let cell = document.querySelectorAll(".col div");
-    addHoverEffect(cell)
-    adjustCellSize(cell, size)
+    addHoverEffect(cell);  // Add hover effect to each cell
+    adjustCellSize(cell, size);  // Dynamically change cell size for current cell selection
 }
 
 function addHoverEffect(cell) {
     // Hover effect
     cell.forEach(div => {
+        div.addEventListener("mousedown", (event) => {
+                event.target.style.backgroundColor = "white";
+        }); 
+
         div.addEventListener("mouseover", (event) => {
-            event.target.style.backgroundColor = "white";
+            if (holdingClick) {
+                event.target.style.backgroundColor = "white";
+            }
         }); 
     });
 }

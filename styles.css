@@ -1,16 +1,14 @@
 #grid {
     display: flex;
     flex-direction: row;
-    
+    width: 600px;
+    height: 600px;
 }
 
 #grid .col div {
     width: 8px;
     height: 8px;
     background-color: black;
-    /* DELETE LATER: ONLY FOR VISUAL GRID */
-    margin: 1px;
-    /* DELETE LATER: ONLY FOR VISUAL GRID */
 }
 
 .col {

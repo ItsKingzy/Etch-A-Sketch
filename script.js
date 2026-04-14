@@ -34,6 +34,7 @@ function updateGridSize(size) {
     // Re-query all cells
     let cell = document.querySelectorAll(".col div");
     addHoverEffect(cell)
+    adjustCellSize(cell, size)
 }
 
 function addHoverEffect(cell) {
@@ -42,6 +43,14 @@ function addHoverEffect(cell) {
         div.addEventListener("mouseover", (event) => {
             event.target.style.backgroundColor = "white";
         }); 
+    });
+}
+
+function adjustCellSize(cell, size) {
+    cell.forEach(div => {
+        let n = 600 / size;  // Compute the size of the W and H of a cell by dividing the grid H (or W) by the size of cells we want
+        div.style.width = `${n}px`;
+        div.style.height = `${n}px`;
     });
 }
 

@@ -41,12 +41,12 @@ function addHoverEffect(cell) {
     // Hover effect
     cell.forEach(div => {
         div.addEventListener("mousedown", (event) => {
-                event.target.style.backgroundColor = "white";
+                event.target.style.backgroundColor = "black";
         }); 
 
         div.addEventListener("mouseover", (event) => {
             if (holdingClick) {
-                event.target.style.backgroundColor = "white";
+                event.target.style.backgroundColor = "black";
             }
         }); 
     });

@@ -3,12 +3,13 @@
     flex-direction: row;
     width: 600px;
     height: 600px;
+    border: 4px solid black;
 }
 
 #grid .col div {
-    width: 8px;
-    height: 8px;
-    background-color: black;
+    box-sizing: border-box;
+    background-color: white;
+    border: 0.5px solid rgba(211, 211, 211, 0.25);
 }
 
 .col {

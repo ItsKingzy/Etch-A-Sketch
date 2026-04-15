@@ -12,6 +12,7 @@ let isEraser = false;
 
 // Create a 16 x 16 grid of square divs
 const grid = document.querySelector("#grid");
+let allCells;
 
 function updateGridSize(size) {
     // Pre condition to delete all divs
@@ -36,9 +37,9 @@ function updateGridSize(size) {
     }
 
     // Re-query all cells
-    let cell = document.querySelectorAll(".col div");
-    addHoverEffect(cell);  // Add hover effect to each cell
-    adjustCellSize(cell, size);  // Dynamically change cell size for current cell selection
+    allCells = document.querySelectorAll(".col div");
+    addHoverEffect(allCells);  // Add hover effect to each cell
+    adjustCellSize(allCells, size);  // Dynamically change cell size for current cell selection
 }
 
 function addHoverEffect(cell) {
@@ -90,5 +91,8 @@ document.querySelector("#pen").addEventListener("click", () => {
 // Clear board
 document.querySelector("#clear").addEventListener("click", () => {
     isEraser = false;
-    // TODO: IMPLEMENT LOGIC
+    let cell = document.querySelectorAll(".col div");
+    cell.forEach(div => { 
+        
+    });
 });

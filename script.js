@@ -45,12 +45,12 @@ function addHoverEffect(cell) {
     // Hover effect
     cell.forEach(div => {
         div.addEventListener("mousedown", (event) => {
-                event.target.style.backgroundColor = colour;
+            event.target.style.backgroundColor = isEraser ? "white" : colour;
         }); 
 
         div.addEventListener("mouseover", (event) => {
             if (holdingClick) {
-                event.target.style.backgroundColor = colour;
+                event.target.style.backgroundColor = isEraser ? "white" : colour;;
             }
         }); 
     });
@@ -75,18 +75,20 @@ slider.addEventListener("change", (event) => {
     gridSize.textContent = `${n} x ${n}`;
     updateGridSize(n);
 });
-
+// Select colour
+document.querySelector("#colour").addEventListener("input", (event) => {
+    colour = event.target.value;
+});
 // Select eraser tool
 document.querySelector("#eraser").addEventListener("click", () => {
     isEraser = true;
-    colour = "white";
 });
 // Select pen tool
 document.querySelector("#pen").addEventListener("click", () => {
     isEraser = false;
-    colour = "black";
 });
 // Clear board
 document.querySelector("#clear").addEventListener("click", () => {
+    isEraser = false;
     // TODO: IMPLEMENT LOGIC
 });

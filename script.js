@@ -6,6 +6,10 @@ document.querySelector("body").addEventListener("mouseup", () => {
     holdingClick = false;
 });
 
+// Selected colour
+let colour = "black";
+let isEraser = false;
+
 // Create a 16 x 16 grid of square divs
 const grid = document.querySelector("#grid");
 
@@ -41,12 +45,12 @@ function addHoverEffect(cell) {
     // Hover effect
     cell.forEach(div => {
         div.addEventListener("mousedown", (event) => {
-                event.target.style.backgroundColor = "black";
+                event.target.style.backgroundColor = colour;
         }); 
 
         div.addEventListener("mouseover", (event) => {
             if (holdingClick) {
-                event.target.style.backgroundColor = "black";
+                event.target.style.backgroundColor = colour;
             }
         }); 
     });
@@ -70,4 +74,19 @@ slider.addEventListener("change", (event) => {
     let n = event.currentTarget.value % 100;
     gridSize.textContent = `${n} x ${n}`;
     updateGridSize(n);
+});
+
+// Select eraser tool
+document.querySelector("#eraser").addEventListener("click", () => {
+    isEraser = true;
+    colour = "white";
+});
+// Select pen tool
+document.querySelector("#pen").addEventListener("click", () => {
+    isEraser = false;
+    colour = "black";
+});
+// Clear board
+document.querySelector("#clear").addEventListener("click", () => {
+    // TODO: IMPLEMENT LOGIC
 });

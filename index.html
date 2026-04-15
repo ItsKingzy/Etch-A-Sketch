@@ -7,17 +7,21 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <div id="container">
+    <div id="title">Etch-A-Sketch</div>
+    
+    <div id="main">
+
         <div id="tools">
-        <button id="pen"></button>
-        <button id="eraser"></button>
-        <button id="clear"></button>
+            <button id="pen">Pen</button>
+            <button id="eraser">Eraser</button>
+            <button id="clear">Clear</button>
+        </div>
+
         <!-- Dynamic grid adjust -->
         <div id="grid-size-adjuster">
             <input type="range" min="1" max="60" value="16" id="slider">
             <div id="grid-size">16 x 16</div>
         </div>
-    </div>
 
     <div id="grid"></div>
     </div>

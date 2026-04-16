@@ -10,6 +10,9 @@ document.querySelector("body").addEventListener("mouseup", () => {
 let colour = "black";
 let isEraser = false;
 
+// Select RGB
+let isRGB = false;
+
 // Create a 16 x 16 grid of square divs
 const grid = document.querySelector("#grid");
 let allCells;
@@ -46,12 +49,12 @@ function addHoverEffect(cell) {
     // Hover effect
     cell.forEach(div => {
         div.addEventListener("mousedown", (event) => {
-            event.target.style.backgroundColor = isEraser ? "white" : colour;
+            event.target.style.backgroundColor = isEraser ? "white" : isRGB ? randomColour() : colour;
         }); 
 
         div.addEventListener("mouseover", (event) => {
             if (holdingClick) {
-                event.target.style.backgroundColor = isEraser ? "white" : colour;;
+                event.target.style.backgroundColor = isEraser ? "white" : isRGB ? randomColour() : colour;
             }
         }); 
     });
@@ -67,6 +70,13 @@ function adjustCellSize(cell, size) {
 
 updateGridSize(16); // Set default grid size to 16
 
+function randomColour() {
+    rVal = Math.floor(Math.random() * 255);
+    gVal = Math.floor(Math.random() * 255);
+    bVal = Math.floor(Math.random() * 255);
+
+    return colour = `rgb(${rVal}, ${gVal}, ${bVal})`;
+}
 
 // Dynamic grid size adjuster
 let slider = document.querySelector("#slider");
@@ -80,17 +90,25 @@ slider.addEventListener("change", (event) => {
 document.querySelector("#colour").addEventListener("input", (event) => {
     colour = event.target.value;
 });
-// Select eraser tool
-document.querySelector("#eraser").addEventListener("click", () => {
-    isEraser = true;
-});
 // Select pen tool
 document.querySelector("#pen").addEventListener("click", () => {
     isEraser = false;
+    isRGB = false;
+});
+// Select rgb pen tool
+document.querySelector("#rgb").addEventListener("click", () => {
+    isEraser = false;
+    isRGB = true;
+});
+// Select eraser tool
+document.querySelector("#eraser").addEventListener("click", () => {
+    isEraser = true;
+    isRGB = false;
 });
 // Clear board
 document.querySelector("#clear").addEventListener("click", () => {
     isEraser = false;
+    isRGB = false;
     allCells.forEach(div => { 
         div.style.backgroundColor = "white";
     });

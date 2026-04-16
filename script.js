@@ -75,7 +75,7 @@ function randomColour() {
     gVal = Math.floor(Math.random() * 255);
     bVal = Math.floor(Math.random() * 255);
 
-    return colour = `rgb(${rVal}, ${gVal}, ${bVal})`;
+    return `rgb(${rVal}, ${gVal}, ${bVal})`;
 }
 
 // Dynamic grid size adjuster

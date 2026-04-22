@@ -21,6 +21,7 @@ body {
 #tools {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 
@@ -36,6 +37,10 @@ body {
     box-sizing: border-box;
     background-color: white;
     border: 0.5px solid rgba(211, 211, 211, 0.25);
+}
+
+.btn {
+    width: 130px;
 }
 
 .col {

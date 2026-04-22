@@ -107,8 +107,6 @@ document.querySelector("#eraser").addEventListener("click", () => {
 });
 // Clear board
 document.querySelector("#clear").addEventListener("click", () => {
-    isEraser = false;
-    isRGB = false;
     allCells.forEach(div => { 
         div.style.backgroundColor = "white";
     });

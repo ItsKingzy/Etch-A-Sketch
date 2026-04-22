@@ -22,6 +22,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 8px;
 }
 
 
@@ -42,7 +43,7 @@ body {
 #single-tools {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
 }
 
 .tool {
@@ -50,6 +51,12 @@ body {
     border: 2px solid black;
     border-radius: 8px;
     height: 24px;
+}
+
+#grid-size-adjuster {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .col {

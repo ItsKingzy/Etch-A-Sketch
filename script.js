@@ -91,7 +91,7 @@ document.querySelector("#colour").addEventListener("input", (event) => {
     colour = event.target.value;
 });
 // Select pen tool
-document.querySelector("#pen").addEventListener("click", () => {
+document.querySelector("#pen").addEventListener("click", (e) => {
     isEraser = false;
     isRGB = false;
 });
@@ -112,4 +112,24 @@ document.querySelector("#clear").addEventListener("click", () => {
     allCells.forEach(div => { 
         div.style.backgroundColor = "white";
     });
+});
+// Highlight any tool clicked
+let currTool = document.querySelectorAll("button");
+currTool.forEach(tool => {
+    // Set the initial background of the pen (tool selected)
+    if (tool.id === "pen") {
+        tool.style.backgroundColor = "yellow";
+    }
+
+    // Skip Clear button
+    if (tool.id !== "clear") {
+        tool.addEventListener("click", () => {
+            // Reset Colour to grey
+            currTool.forEach(toolReset => {
+                toolReset.style.backgroundColor = "#EEEEEE";
+            });
+        // Set colour to highlight colour change
+        tool.style.backgroundColor = "yellow";
+        });
+    }
 });

@@ -116,7 +116,7 @@ let currTool = document.querySelectorAll("button");
 currTool.forEach(tool => {
     // Set the initial background of the pen (tool selected)
     if (tool.id === "pen") {
-        tool.style.backgroundColor = "yellow";
+        tool.style.backgroundColor = "lightgrey";
     }
 
     // Skip Clear button
@@ -127,7 +127,15 @@ currTool.forEach(tool => {
                 toolReset.style.backgroundColor = "#EEEEEE";
             });
         // Set colour to highlight colour change
-        tool.style.backgroundColor = "yellow";
+        tool.style.backgroundColor = "lightgrey";
         });
     }
+});
+// Clear button highlight
+let clearBtn = document.querySelector("#clear");
+clearBtn.addEventListener("mousedown", () => {
+    clearBtn.style.backgroundColor = "lightgrey";
+});
+clearBtn.addEventListener("mouseup", () => {
+    clearBtn.style.backgroundColor = "#EEEEEE";
 });
